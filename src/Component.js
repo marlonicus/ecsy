@@ -78,6 +78,7 @@ export class Component {
 
     // Check that the attributes defined in source are also defined in the schema
     Object.keys(src).forEach((srcKey) => {
+      if (srcKey === '_pool') return
       if (!schema.hasOwnProperty(srcKey)) {
         console.warn(
           `Trying to set attribute '${srcKey}' not defined in the '${this.constructor.name}' schema. Please fix the schema, the attribute value won't be set`
